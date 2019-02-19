@@ -1,6 +1,7 @@
 import { PessoaService } from './../../pessoa.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -11,9 +12,20 @@ export class FormComponent implements OnInit {
 
   formulario: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private service: PessoaService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: PessoaService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (id !== null) {
+      this.service.buscar(Number(id)).subscribe(pessoa => this.formulario.patchValue(pessoa));
+    }
+
     this.formulario = this.formBuilder.group({
       id: [null],
       nome: [null, [Validators.required]],

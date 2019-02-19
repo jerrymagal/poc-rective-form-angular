@@ -16,7 +16,7 @@ export class PessoaService {
   }
 
   buscar(id: number): Observable<Pessoa> {
-    return this.http.get<Pessoa>('');
+    return this.http.get<Pessoa>(`${environment.endpoint}/pessoa/${id}`);
   }
 
   salvar(pessoa: Pessoa): Observable<any> {
