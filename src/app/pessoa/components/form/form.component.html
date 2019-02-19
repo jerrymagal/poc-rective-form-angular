@@ -1,0 +1,43 @@
+<form [formGroup]="formulario" (ngSubmit)="salvar()">
+  <div class="ui-g">
+    <div class="ui-g-4 ui-fluid">
+      <h3 class="first">Nome</h3>
+      <input id="nome" type="text" pInputText formControlName="nome">
+    </div>
+    <div class="ui-g-1 ui-fluid">
+      <h3 class="first">Idade</h3>
+      <input id="idade" type="text" formControlName="idade" pKeyFilter="int" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+    </div>
+    <div class="ui-g-5 ui-fluid" formGroupName="endereco">
+      <h3 class="first">Rua</h3>
+      <input id="rua" type="text" pInputText formControlName="rua">
+    </div>
+    <div class="ui-g-2 ui-fluid" formGroupName="endereco">
+      <h3 class="first">Número</h3>
+      <input id="numero" type="text" formControlName="numero" pKeyFilter="int" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+    </div>
+  </div>
+  <div class="ui-g" formGroupName="endereco">
+      <div class="ui-g-4 ui-fluid">
+        <h3 class="first">Bairro</h3>
+        <input id="bairro" type="text" pInputText formControlName="bairro">
+      </div>
+      <div class="ui-g-4 ui-fluid">
+        <h3 class="first">Cidade</h3>
+        <input id="cidade" type="text" pInputText formControlName="cidade">
+      </div>
+      <div class="ui-g-4 ui-fluid">
+        <h3 class="first">Estado</h3>
+        <input id="estado" type="text" pInputText formControlName="estado">
+      </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-1">
+        <button pButton type="submit" label="salvar"></button>
+    </div>
+    <div class="ui-g-1">
+        <a pButton label="Voltar" routerLink="/pessoa" class="ui-button-warning"></a>
+    </div>
+  </div>
+
+</form>

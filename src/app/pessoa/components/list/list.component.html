@@ -1,0 +1,32 @@
+<p-table [value]="pessoas" selection>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Rua</th>
+      <th>Número</th>
+      <th>Cidade</th>
+      <th>Estado</th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-pessoa>
+    <tr>
+      <td>{{pessoa.nome}}</td>
+      <td>{{pessoa.idade}}</td>
+      <td>{{pessoa.endereco.rua}}</td>
+      <td>{{pessoa.endereco.numero}}</td>
+      <td>{{pessoa.endereco.cidade}}</td>
+      <td>{{pessoa.endereco.estado}}</td>
+      <td>
+        <a pButton icon="pi pi-pencil" pTooltip="Editar" [routerLink]="['/pessoa/form', pessoa.id]"></a>
+        <button pButton icon="pi pi-trash" pTooltip="Excluir"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<br>
+
+<a pButton label="Nova Pessoa" routerLink="/pessoa/form"></a>
+
+
