@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@media (max-width: 640px) {
+  .pesquisa {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 641px) {
+  .pesquisa {
+    width: auto !important;
+  }
+}
+
+@media (min-width: 1165px) {
+  .col-18 {
+    width: 18em;
+  }
+  .col-15 {
+    width: 15em;
+  }
+  .col-9 {
+    width: 9em;
+  }
+  .col-7 {
+    width: 7em;
+  }
+  .col-5 {
+    width: 5em;
+  }
+}
+.col-4 {
+  width: 4em;
+}
