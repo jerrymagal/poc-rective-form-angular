@@ -2,6 +2,7 @@ import { PessoaService } from './../../pessoa.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { FormValidatorService } from 'src/app/form-validator.service';
 
 @Component({
   selector: 'app-form',
@@ -15,7 +16,8 @@ export class FormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private service: PessoaService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private formValidator: FormValidatorService
   ) { }
 
   ngOnInit() {
@@ -28,7 +30,7 @@ export class FormComponent implements OnInit {
 
     this.formulario = this.formBuilder.group({
       id: [null],
-      nome: [null, [Validators.required]],
+      nome: [null, [Validators.required, Validators.maxLength(5)]],
       idade: [null, Validators.required],
       endereco: this.formBuilder.group({
         rua: [null, Validators.required],
@@ -41,19 +43,8 @@ export class FormComponent implements OnInit {
   }
 
   salvar(): void {
-    if (!this.formulario.valid) {
-      this.validarFormulario(this.formulario);
-    } else {
+    if (this.formValidator.isValid(this.formulario)) {
       this.service.salvar(this.formulario.value).subscribe(data => console.log(data));
     }
-  }
-
-  private validarFormulario(form: FormGroup): void {
-    Object.keys(form.controls).forEach(campo => {
-      const controle = form.get(campo);
-      if (controle instanceof FormGroup) {
-        this.validarFormulario(controle);
-      }
-    });
   }
 }
