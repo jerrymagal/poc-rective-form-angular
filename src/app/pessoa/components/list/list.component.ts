@@ -1,6 +1,9 @@
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../../pessoa.service';
 import { Pessoa } from '../../pessoa';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-list',
@@ -9,12 +12,13 @@ import { Pessoa } from '../../pessoa';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private service: PessoaService) { }
+  constructor(private service: PessoaService, private spinner: NgxSpinnerService) { }
 
-  pessoas: Pessoa[];
+  retorno$: Observable<any>;
 
   ngOnInit() {
-    this.service.listar().subscribe(pessoas => this.pessoas = pessoas);
+    this.spinner.show();
+    this.retorno$ = this.service.listar().pipe(tap(() => this.spinner.hide()));
   }
 
 }

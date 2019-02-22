@@ -6,6 +6,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CardModule} from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
 
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -20,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     ToastModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxSpinnerModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
