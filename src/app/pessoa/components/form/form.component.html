@@ -28,7 +28,13 @@
       </div>
       <div class="ui-g-4 ui-fluid">
         <h3 class="first">Estado</h3>
-        <input id="estado" type="text" pInputText formControlName="estado">
+        <p-dropdown [options]="(estados$ | async)?.geonames" placeholder="Selecione um Estado"
+                    optionLabel="name" [showClear]="true" formControlName="estado" filter="true"
+                    (onChange)="onChangeEstado($event)">
+
+
+        </p-dropdown>
+        <!--<input id="estado" type="text" pInputText formControlName="estado">-->
       </div>
   </div>
   <div class="ui-g">

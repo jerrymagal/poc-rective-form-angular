@@ -7,8 +7,7 @@ import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {TooltipModule} from 'primeng/tooltip';
-
-import { NgxSpinnerModule } from 'ngx-spinner';
+import {DropdownModule} from 'primeng/dropdown';
 
 import { ListComponent } from './components/list/list.component';
 import { FormComponent } from './components/form/form.component';
@@ -25,7 +24,8 @@ import { PessoaRountingModule } from './pessoa-rounting.module';
     KeyFilterModule,
     TooltipModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    DropdownModule
   ],
   exports: [
     PessoaRountingModule

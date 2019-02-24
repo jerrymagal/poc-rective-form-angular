@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { PessoaService } from './../../pessoa.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,6 +13,7 @@ import { FormValidatorService } from 'src/app/form-validator.service';
 export class FormComponent implements OnInit {
 
   formulario: FormGroup;
+  estados$: Observable<any>;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,11 +42,19 @@ export class FormComponent implements OnInit {
         estado: [null, Validators.required]
       })
     });
+
+    this.estados$ = this.service.listarEstados();
   }
 
   salvar(): void {
     if (this.formValidator.isValid(this.formulario)) {
       this.service.salvar(this.formulario.value).subscribe(data => console.log(data));
+    }
+  }
+
+  onChangeEstado(event) {
+    if (event.value) {
+      this.formulario.value.endereco.estado = event.value.name;
     }
   }
 }
