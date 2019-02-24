@@ -14,6 +14,9 @@ export class FormComponent implements OnInit {
 
   formulario: FormGroup;
   estados$: Observable<any>;
+  reader: FileReader;
+
+  arquivos: any[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -57,4 +60,8 @@ export class FormComponent implements OnInit {
       this.formulario.value.endereco.estado = event.value.name;
     }
   }
+
+  public onSelectImage(evt: any) {
+    console.log(evt[0]);
+ }
 }

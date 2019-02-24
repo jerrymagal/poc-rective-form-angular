@@ -46,4 +46,11 @@
     </div>
   </div>
 
+  <p-fileUpload name="demo[]" multiple="multiple" accept="image/*" maxFileSize="1000000"
+                customUpload="true" [showUploadButton]="false"
+                [showCancelButton]="false"
+                (onSelect)="onSelectImage($event.files)"
+                chooseLabel="Selecionar">
+  </p-fileUpload>
+
 </form>

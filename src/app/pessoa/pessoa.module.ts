@@ -8,6 +8,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {TooltipModule} from 'primeng/tooltip';
 import {DropdownModule} from 'primeng/dropdown';
+import {FileUploadModule} from 'primeng/fileupload';
 
 import { ListComponent } from './components/list/list.component';
 import { FormComponent } from './components/form/form.component';
@@ -25,7 +26,8 @@ import { PessoaRountingModule } from './pessoa-rounting.module';
     TooltipModule,
     ReactiveFormsModule,
     FormsModule,
-    DropdownModule
+    DropdownModule,
+    FileUploadModule
   ],
   exports: [
     PessoaRountingModule
